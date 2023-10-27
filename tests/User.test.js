@@ -34,5 +34,15 @@ describe("User property tests", () => {
 });
 
 // test login
-
+describe("User login method", () => {
+  test("User password throws error if does not match", () => {
+    expect(() => {
+      user.login("incorrect");
+    }).toThrow("incorrect password");
+  });
+  test("User is logged in if password matches", () => {
+    user.login("test123");
+    expect(user.loggedIn).toBe(true);
+  });
+});
 // test logout

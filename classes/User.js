@@ -9,6 +9,13 @@ class User {
   getPassword() {
     return this.#password;
   }
+  login(password) {
+    if (password !== this.#password) {
+      throw new Error("incorrect password");
+    } else {
+      this.loggedIn = true;
+    }
+  }
 }
 
 module.exports = User;
