@@ -44,6 +44,22 @@ class ScooterApp {
       throw new Error("Username or password incorrect");
     }
   }
+  //logout
+  logoutUser(username) {
+    const user = this.registeredUsers.find(
+      (user) => user.username === username
+    );
+    if (user === undefined) {
+      throw new Error("No such user logged in");
+    }
+    if (user && user.loggedIn === true) {
+      user.logout();
+      console.log("user has been logged out");
+      return true;
+    } else {
+      throw new Error("User not logged in");
+    }
+  }
 }
 
 module.exports = ScooterApp;

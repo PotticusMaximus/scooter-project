@@ -50,6 +50,17 @@ describe("User login tests", () => {
   });
 });
 // log out
+describe("User logout tests", () => {
+  test("Log member out if found and logged in", () => {
+    expect(scooterApp.logoutUser("Joe Bloggs")).toBe(true);
+  });
+
+  test("Throw error if user not found", () => {
+    expect(() => {
+      scooterApp.logoutUser("Joseph Bloggs");
+    }).toThrow("No such user logged in");
+  });
+});
 
 // rent scooter
 
