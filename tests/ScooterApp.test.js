@@ -26,6 +26,11 @@ describe("registerUser method tests", () => {
     let response = scooterApp.registerUser("Joe Bloggs", "test123", 21);
     expect(response).toBeInstanceOf(User);
   });
+  test("Cannot register if under 18", () => {
+    expect(() => {
+      scooterApp.registerUser("Youth", "qte7898", 16);
+    }).toThrow("Too young to register");
+  });
 });
 
 // log in

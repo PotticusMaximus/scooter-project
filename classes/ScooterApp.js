@@ -12,14 +12,22 @@ class ScooterApp {
       "Mount Vernon": [],
       "Penn Station": [],
     };
-    this.registeredUsers = {
-      "Test user 1": {
-        Password: "testPass",
-        Age: 999,
-        "Payment-method": true,
-        Trips: ["Scooter", "date"],
-      },
-    };
+    this.registeredUsers = [];
+  }
+
+  registerUser(username, password, age) {
+    if (age < 18) {
+      throw new Error("Too young to register");
+    }
+    if (this.registeredUsers.some((user) => user.username === username)) {
+      throw new Error("User already registered");
+    }
+    this.registeredUsers.push(new User(username, password, age));
+    console.log(
+      "user has been registered",
+      this.registeredUsers[this.registeredUsers.length - 1]
+    );
+    return this.registeredUsers[this.registeredUsers.length - 1];
   }
 }
 
