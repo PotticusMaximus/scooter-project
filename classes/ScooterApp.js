@@ -65,7 +65,7 @@ class ScooterApp {
     if (!this.stations.hasOwnProperty(station)) {
       throw new Error("No such station");
     } else {
-      let newScooter = new Scooter();
+      const newScooter = new Scooter();
       newScooter.station = station;
       this.stations[station].push(newScooter);
       console.log(
@@ -75,6 +75,7 @@ class ScooterApp {
       return this.stations[station][this.stations[station].length - 1];
     }
   }
+  //Dock scooter
 }
 
 module.exports = ScooterApp;

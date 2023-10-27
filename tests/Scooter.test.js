@@ -26,6 +26,17 @@ describe("scooter object", () => {
 describe("scooter methods", () => {
   // tests here!
   //rent method
+  test("Throw error if low battery", () => {
+    scooter1.charge = 10;
+    expect(() => scooter1.rent("Joe Bloggs")).toThrow(
+      "scooter needs to charge"
+    );
+  });
+  test("Throw error if broken", () => {
+    scooter1.isBroken = true;
+    scooter1.charge = 100;
+    expect(() => scooter1.rent("Joe Bloggs")).toThrow("scooter needs repair");
+  });
   //dock method
   //requestRepair method
   //charge method
