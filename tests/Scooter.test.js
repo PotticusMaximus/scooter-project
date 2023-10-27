@@ -26,6 +26,12 @@ describe("scooter object", () => {
 describe("scooter methods", () => {
   // tests here!
   //rent method
+  test("Scooter can be rented", () => {
+    expect(scooter1.rent("Joe Bloggs")).toBe(true);
+  });
+  test("Throw error if already rented", () => {
+    expect(() => scooter1.rent("Mike P")).toThrow("scooter already rented");
+  });
   test("Throw error if low battery", () => {
     scooter1.charge = 10;
     expect(() => scooter1.rent("Joe Bloggs")).toThrow(
@@ -37,7 +43,12 @@ describe("scooter methods", () => {
     scooter1.charge = 100;
     expect(() => scooter1.rent("Joe Bloggs")).toThrow("scooter needs repair");
   });
+
   //dock method
+  test("Scooter can be docked", () => {
+    expect(scooter1.dock("JH University")).toBe(true);
+  });
+
   //requestRepair method
   //charge method
 });
