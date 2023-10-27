@@ -29,6 +29,21 @@ class ScooterApp {
     );
     return this.registeredUsers[this.registeredUsers.length - 1];
   }
+  loginUser(username, password) {
+    const user = this.registeredUsers.find(
+      (user) => user.username === username
+    );
+    if (user === undefined) {
+      throw new Error("User not found");
+    }
+    if (user && user.getPassword() === password) {
+      user.login(password);
+      console.log("user has been logged in");
+      return true;
+    } else {
+      throw new Error("Username or password incorrect");
+    }
+  }
 }
 
 module.exports = ScooterApp;

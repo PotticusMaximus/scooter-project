@@ -34,7 +34,21 @@ describe("registerUser method tests", () => {
 });
 
 // log in
-
+describe("User login tests", () => {
+  test("Finds user in registeredUsers[]", () => {
+    expect(scooterApp.loginUser("Joe Bloggs", "test123")).toBe(true);
+  });
+  test("Throw error if wrong password provided", () => {
+    expect(() => {
+      scooterApp.loginUser("Joe Bloggs", "test127");
+    }).toThrow("Username or password incorrect");
+  });
+  test("Throw error if user not found", () => {
+    expect(() => {
+      scooterApp.loginUser("Joseph Bloggs", "test123");
+    }).toThrow("User not found");
+  });
+});
 // log out
 
 // rent scooter
