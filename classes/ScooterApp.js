@@ -60,6 +60,21 @@ class ScooterApp {
       throw new Error("User not logged in");
     }
   }
+  //create scooter
+  createScooter(station) {
+    if (!this.stations.hasOwnProperty(station)) {
+      throw new Error("No such station");
+    } else {
+      let newScooter = new Scooter();
+      newScooter.station = station;
+      this.stations[station].push(newScooter);
+      console.log(
+        this.stations[station][this.stations[station].length - 1],
+        `Created new Scooter at ${station}`
+      );
+      return this.stations[station][this.stations[station].length - 1];
+    }
+  }
 }
 
 module.exports = ScooterApp;

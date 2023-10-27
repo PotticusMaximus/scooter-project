@@ -1,7 +1,8 @@
 const Scooter = require("../classes/Scooter");
 const User = require("../classes/User");
 
-const scooter1 = new Scooter("Federal Hill", "Mike P", 100, false);
+const scooter1 = new Scooter();
+const scooter2 = new Scooter();
 
 //typeof scooter === object
 describe("scooter object", () => {
@@ -9,16 +10,8 @@ describe("scooter object", () => {
     expect(scooter1).toBeInstanceOf(Scooter);
   });
 
-  it("Correctly Assigns given station", () => {
-    expect(scooter1.station).toBe("Federal Hill");
-  });
-
-  it("Correctly Assigns given User", () => {
-    expect(scooter1.user).toBe("Mike P");
-  });
-
   it("Correctly Assigns a new incremented serial number", () => {
-    expect(scooter1.serial).toBe(Scooter.nextSerial);
+    expect(scooter2.serial).toBe(2);
   });
 
   it("Correctly Assigns full charge", () => {

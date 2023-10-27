@@ -61,6 +61,18 @@ describe("User logout tests", () => {
     }).toThrow("No such user logged in");
   });
 });
+//create scooter
+describe("Create Scooter tests", () => {
+  test("Should return instance of Scooter", () => {
+    let response = scooterApp.createScooter("Federal Hill");
+    expect(response).toBeInstanceOf(Scooter);
+  });
+  test("Error if station doesn't exist", () => {
+    expect(() => {
+      scooterApp.createScooter("fake station");
+    }).toThrow("No such station");
+  });
+});
 
 // rent scooter
 
