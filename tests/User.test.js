@@ -46,3 +46,14 @@ describe("User login method", () => {
   });
 });
 // test logout
+describe("User logout method", () => {
+  test("User is logged out if logged in", () => {
+    user.loggedIn = true;
+    expect(user.logout()).toBe("User successfully logged out");
+  });
+  test("Throws error if user not logged in", () => {
+    expect(() => {
+      user.logout();
+    }).toThrow("User not logged in");
+  });
+});

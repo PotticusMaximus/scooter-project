@@ -16,6 +16,14 @@ class User {
       this.loggedIn = true;
     }
   }
+  logout() {
+    if (this.loggedIn === false) {
+      throw new Error("User not logged in");
+    } else {
+      this.loggedIn = false;
+      return "User successfully logged out";
+    }
+  }
 }
 
 module.exports = User;
