@@ -1,8 +1,8 @@
-const User = require("./User");
-const Scooter = require("./Scooter");
+const User = require("../classes/User");
+const Scooter = require("../classes/Scooter");
 
 class ScooterApp {
-  constructor(stations, registeredUsers) {
+  constructor() {
     this.stations = {
       "Inner Harbor": [],
       "Fells Point": [],
@@ -12,7 +12,14 @@ class ScooterApp {
       "Mount Vernon": [],
       "Penn Station": [],
     };
-    this.registeredUsers = {};
+    this.registeredUsers = {
+      "Test user 1": {
+        Password: "testPass",
+        Age: 999,
+        "Payment-method": true,
+        Trips: ["Scooter", "date"],
+      },
+    };
   }
 }
 
